@@ -20,7 +20,5 @@ Please note that installing Anaconda is the **recommended** option for doing the
 Please run the below commands from your command line interface
 
 ```conda install seaborn```
-```conda install pydotplus```
-```conda install altair --channel conda-forge```
 
-### Installing XGBoost
+```conda install pydotplus```
