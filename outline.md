@@ -1,6 +1,7 @@
-theme: Letters from Sweden, 4
+theme: Olive Green, 8
+autoscale: true
 
-# [fit] Applied Machine Learning
+# [fit] **Applied Machine Learning**
 
 
 <br>
@@ -13,54 +14,82 @@ theme: Letters from Sweden, 4
 
 ---
 
-> What I cannot create, I do not understand 
--- Richard Feynman
+# **Getting Started**
+- Download the Repo: [https://github.com/amitkaps/applied-machine-learning](https://github.com/amitkaps/applied-machine-learning)
+- Finish installation
+- Run `jupyter notebook` in the console
 
 ---
 
-# Approach
-- Understand Learning from Data.
-- Use Real-Life Examples
-- Play with code.
+# **Schedule**
+
+0900 - 0930: Breakfast
+0930 - 1115: **Session 1** - *Conceptual*
+1115 - 1130: Tea Break
+1130 - 1315: **Session 2** - *Coding*
+1315 - 1400: Lunch
+1400 - 1530: **Session 3** - *Conceptual*
+1530 - 1545: Tea Break
+1545 - 1700: **Session 4** - *Coding*
 
 ---
 
-# Module 1: Linear Algebra
-## Supervised ML - Regression, Classification
-- Solve $$Ax = b$$ for $$ n \times n$$
-- Solve $$Ax = b$$ for $$ n \times p + 1$$
-- Linear Regression
-- Ridge Regularization (L2)
-- Bootstrapping
-- Logistic Regression (Classification)
+# **Data-Driven Lens**
+
+> "Data is a clue to the End Truth"
+-- Josh Smith
 
 ---
 
-# Module 2: Statistics
-## Hypothesis Testing: A/B Testing
-- Basic Statistics
-- Distributions
-- Shuffling
-- Bootstrapping & Simulation
-- A/B Testing
+# **Metaphor**
+
+- A start-up providing loans to the consumer 
+- Running for the last few years
+- Now planning to adopt a data-driven lens 
+
+What are the **type of questions** you can ask?
 
 ---
 
-# Module 3: Linear Algebra contd.
-## Unsupervised ML: Dimensionality Reduction
-- Solve $$Ax = \lambda x$$ for $$ n \times n$$
-- Eigenvectors & Eigenvalues
-- Principle Component Analysis
-- Cluster Analysis (K-Means)
+# **Type of Questions**
+- What is the trend of loan defaults?
+- Do older customers have more loan defaults?
+- Which customer is likely to have a loan default?
+- Why do customers default on their loan?
 
 ---
+
+# **Type of Questions**
+- Descriptive
+- Inquisitive
+- Predictive
+- Causal
+
+---
+
+# **Data-driven Analytics**
+- **Descriptive**: Understand Pattern, Trends, Outlier
+- **Inquisitive**: Conduct Hypothesis Testing
+- **Predictive**: Make a prediction
+- **Causal**: Establish a causal link
+
+---
+
+# **Prediction Challenge**
 
 > It’s tough to make predictions, especially about the future.
 -- Yogi Berra
 
 ---
 
-# What is Machine Learning (ML)?
+# **How to make a Prediction?**
+- **Human Learning**: Make a *Judgement*
+- **Machine Programmed**: Create explicit *Rules* 
+- **Machine Learning**: Learn from *Data*
+
+---
+
+# **Machine Learning (ML)**
 
 > [Machine learning is the] field of study that gives computers the ability to learn without being explicitly programmed.
 -- *Arthur Samuel*
@@ -72,34 +101,224 @@ theme: Letters from Sweden, 4
 
 ---
 
-# ML Problems
-- “Is this cancer?”
-- “What is the market value of this house?”
-- “Which of these people are friends?”
-- “Will this person like this movie?”
-- “Who is this?”
-- “What did you say?”
-- “How do you fly this thing?”. 
+# **Machine Learning: Essense**
+
+- A pattern exists
+- It cannot be pinned down mathematically
+- Have data on it to learn from
+
+> "Use a set of observations (data) to uncover an underlying process"
 
 ---
 
-# ML in use Everyday
-- Search
-- Photo Tagging
-- Spam Filtering
-- Recommendation
-- ...
+# **Machine Learning**
+- **Theory**
+- **Paradigms**
+- **Models**
+- **Methods**
+- **Process**
+
+--- 
+
+# **Applied ML - Approach**
+- **Theory**: Understand Key Concepts (Intuition)
+- **Paradigms**: Limit to One (Supervised)
+- **Models**: Use Two Types (Linear, Trees) 
+- **Methods**: Apply Key Ones (Validation, Selection)
+- **Process**: Code the Approach (Real Examples)
+
+--- 
+
+# **ML Theory: Data Types**
+
+- What are the types of data on which we are learning?
+- Can you give example of say measuring temperature?
 
 ---
 
-# Broad ML Application
-- Database Mining e.g. Clickstream data, Business data
-- Automating e.g. Handwriting, Natural Language Processing, Computer Vision
-- Self Customising Program e.g. Recommendations
+# **Data Types e.g. Temperature**
+
+- **Categorical** 
+    - *Nominal*: Burned, Not Burned
+    - *Ordinal*: Hot, Warm, Cold
+- **Continuous**
+    - *Interval*: 30 °C, 40 °C, 80 °C 
+    - *Ratio*: 30 K, 40 K, 50 K 
 
 ---
 
-# ML Pipeline
+# **Data Types - Operations**
+
+- **Categorical** 
+  - *Nominal*: = , !=
+  - *Ordinal*: =, !=, >, <
+- **Continuous**
+  - *Interval*: =, !=, >, <, -, % of diff 
+  - *Ratio*: =, !=, >, <, -, +, %
+
+---
+
+# **Case Example**
+
+*Context*: Loan Approval
+
+*Customer Application*
+- **age**: age of the applicant
+- **income**: annual income of the applicant
+- **year**: no. of years of employment
+- **ownership**: type of house owned
+- **grade**: credit grade for the applicant
+
+*Question* - How much loan **amount** to approve?
+
+---
+
+# **Historical Data**
+
+```
+ age   income   years  ownership 	 grade   amount
+ ---   -------  -----  ---------  ------- -------
+ 31	    12252    25.0      RENT      C      2400
+ 24	    49200    13.0      RENT      C     10000
+ 28	    75000    11.0       OWN      B     12000
+ 27    110000    13.0  MORTGAGE      A      3600
+ 33	    24000    10.0      RENT      B      5000
+
+```
+
+---
+
+# **Data Types**
+
+- **Categorical**
+    - *Nominal*: home owner [rent, own, mortgage] 
+    - *Ordinal*: credit grade [A > B > C > D > E]
+- **Continuous**
+    - *Interval*: approval date  [20/04/16, 19/11/15]
+    - *Ratio*: loan amount [3000, 10000]
+
+---
+
+# **ML Terminology**
+
+**Features**: $$\mathbf{x}$$
+   - `age`, `income`, `years`, `ownership`, `grade`
+
+
+**Target**: $$y$$ 
+    - `amount`
+
+**Training Data**: $$ (\mathbf{x}_{1}, y_{1}), (\mathbf{x}_{2}, y_{2}) ... (\mathbf{x}_{n}, y_{n}) $$
+    - historical records
+
+---
+
+# **ML Paradigm: Supervised**
+
+Given a set of **feature** $$\mathbf{x}$$, to predict the value of **target** $$y$$ 
+
+Learning Paradigm: **Supervised**
+
+- If $$y$$ is *continuous* - **Regression**
+- If $$y$$ is *categorical* - **Classification**
+
+---
+
+# **ML Theory: Formulation**
+- **Features** $$\mathbf{x}$$ *(customer application)*
+- **Target** $$y$$ *(loan amount)*
+- **Target Function** $$\mathcal{f}: \mathcal{X} \to \mathcal{y}$$ (ideal formula)
+- **Data** $$ (\mathbf{x}_{1}, y_{1}), (\mathbf{x}_{2}, y_{2}) ... (\mathbf{x}_{n}, y_{n}) $$ *(historical records)*
+- **Final Hypothesis** $$\mathcal{g}: \mathcal{X} \to \mathcal{y}$$ (formula to use)
+- **Hypothesis Set** $$ \mathcal{H} $$ (all possible formulas)
+- **Learning Algorithm** $$\mathcal{A}$$ (how to learn the formula)
+
+
+---
+
+# **ML Theory: Formulation**
+
+$$\text{unknown target function}$$
+$$\mathcal{f}: \mathcal{X} \to \mathcal{y}$$     
+$$ | $$
+$$\text{training data}$$
+$$ (\mathbf{x}_{1}, y_{1}), (\mathbf{x}_{2}, y_{2}) ... (\mathbf{x}_{n}, y_{n}) $$    
+$$ | $$
+$$\text{hypothesis set} \quad \rightarrow \quad \text{learning algorithm} \qquad \qquad \qquad \qquad $$
+$$ \mathcal{H} \qquad  \qquad \qquad \qquad \qquad \mathcal{A} \qquad \qquad \qquad \qquad \qquad $$
+$$ | $$
+$$\text{final hypothesis}$$
+$$\mathcal{g} \to \mathcal{f}$$
+
+---
+
+# **ML Theory:  Learning Model**
+
+The Learning Model is composed of the two elements
+
+- The Hypothesis Set:  $$ \mathcal{H} = \{\mathcal{h}\} \qquad \mathcal{g} \in \mathcal{H} $$
+- Learning Algorithm: $$ \mathcal{A} $$ 
+
+---
+
+# **ML Theory: Formulation (Simplified)**
+
+$$\text{unknown target function}$$
+$$ y = \mathcal{f}(\mathbf{x})$$     
+$$ | $$
+$$\text{training data}$$
+$$ (\mathbf{x}_{1}, y_{1}), (\mathbf{x}_{2}, y_{2}) ... (\mathbf{x}_{n}, y_{n}) $$    
+$$ | $$
+$$\text{hypothesis set} \quad \rightarrow \quad \text{learning algorithm} \qquad \qquad \qquad \qquad $$
+$$ \{ \mathcal{h}(\mathbf{x})\}  \qquad \qquad \qquad \qquad \mathcal{A} \qquad \qquad \qquad \qquad \qquad $$
+$$ | $$
+$$\text{final hypothesis}$$
+$$\mathcal{g}(\mathbf{x}) \to \mathcal{f}(\mathbf{x})$$
+
+---
+
+# **Simple Hypothesis Set: Linear Combination**
+
+For $$d$$ features in training data, 
+
+$$ h(\mathbf{x}) = \sum_{i=1}^d w_{i} x_{i} $$
+
+How do we choose the right $$w_{i}$$?
+
+---
+
+# **Error**
+
+![inline fit](img/regression_error.png)
+
+[^1]: Source - Learning from Data
+
+---
+
+# **Error Measure - MSE**
+
+How well does $$ h(\mathbf{x}) $$ approximate to $$ f(\mathbf{x}) $$
+
+We will use squared error $$ {( h(\mathbf{x}) - f(\mathbf{x}))}^2 $$
+
+$$ E_{in}(h) = \frac{1}{n} \sum_{i=i}^n {( h(\mathbf{x}) - y_i))}^2 $$
+
+---
+
+# **Learning Algorithm - Linear Regression**
+
+- Linear Regression algorithm aims to minimise $$ E_{in}(h)$$ 
+- **One-Step Learning** -> Solves to give $$g(\mathbf{x})$$
+
+$$g(\mathbf{x}) = \hat{y} $$
+
+
+$$ E_{in}(g) = \frac{1}{n} \sum_{i=1}^n {( \hat{y}_i - y_i)}^2 $$
+
+
+---
+
+# **Machine Learning Process**
 
 - *Frame*: Problem definition
 - *Acquire*: Data ingestion 
@@ -111,81 +330,210 @@ theme: Letters from Sweden, 4
 
 ---
 
-# **ML Thought Process**
+# **Frame**
 
-```
-Unknown Target Function
-         y = f(X)
-           |
-           |
-   Training Examples  
-   (x1, y1) ... (xn,yn)
-    
-```
----
+**Variables**
+   - `age`, `income`, `years`, `ownership`, `grade`, `amount`, `default` and `interest`
 
-# Original  
-
-![fit inline](figures/regression-00.png)
+- What are the **Features**: $$\mathbf{x}$$ ?
+- What are the **Target**: $$y$$ 
 
 ---
 
-# Data  
+# **Frame**
 
-![fit inline](figures/regression-01.png)
+**Features**: $$\mathbf{x}$$
+   - `age` 
+   - `income` 
+   - `years`, 
+   - `ownership` 
+   - `grade`, 
 
----
-
-# Original & Data  
-
-![fit inline](figures/regression-02.png)
-
----
-
-# Regression 
-
-![fit inline](figures/regression-03.png)
+**Target**: $$y$$ 
+    - `amount` * (1 - `default`)
 
 
 ---
 
+# **Acquire**
 
-# Original & Data  
-
-![fit inline](figures/regression-02.png)
-
+- Simple! Just read the data from `csv` file
 
 ---
 
-# Original & Data  
+# **Refine - Missing Value**
 
-![fit inline](figures/regression-02.png)
-
-
-
----
-
-# Learning Paradigm
-- *Supervised* Learning
-- *Unsupervised* Learning
-- *Reinforcement* Learning
-- *Online* Learning
+- **REMOVE** - NAN rows
+- **IMPUTATION** - Replace them with something? 
+    - Mean 
+    - Median
+    - Fixed Number - Domain Relevant
+    - High Number (999) - Issue with modelling
+- **BINNING** - Categorical variable and "Missing becomes a category*
+- **DOMAIN SPECIFIC** - Entry error, pipeline, etc.
 
 ---
 
-# Supervised Learning
-- Regression
-- Classification
+# **Refine - Outlier Treatment**
 
-![inline fit](img/supervised.png)
+- What is an outlier?
+- Descriptive Plots
+    - Histogram
+    - Box-Plot 
+- Measuring 
+    - Z-score
+    - Modified Z-score > 3.5
+    where modified Z-score = 0.6745 * (x - x_median) / MAD 
 
 ---
 
-# Unsupervised Learning
-- Clustering
-- Dimensionality Reduction
+# **Explore**
 
-![inline fit](img/unsupervised.png)
+- Single Variable Exploration
+- Dual Variable Exploration
+- Multi Variable Exploration 
+
+---
+
+# **Transform**
+
+Encodings
+- One Hot Encoding 
+- Label Encoding
+
+Feature Transformation
+- Log Transform
+- Sort Transform
+
+---
+
+# **Model - Linear Regression**
+
+**Parameters**
+- fit_intercept
+- normalization
+
+**Error Measure**
+- mean squared error
+
+---
+
+
+# **Real-World Challenge - Noise**
+
+- The "target function" $$f$$ is not always a *function*
+- Not unique target value for same input
+- Need to add noise $$N(0,\sigma)$$
+
+$$ y = f(\mathbf{x}) + \epsilon(\mathbf{x}) $$
+
+---
+
+# **Noise Implication**
+
+The best model we can create will have an expected error of $$\sigma^2$$
+
+If Noise ($$\sigma$$) is large, that means feature set does not capture large enough factors in the underlying process
+    - Need to create **better features**
+    - Need to find **new features**
+
+---
+
+# **When are we learning?**
+
+Learning is defined as $$g≈f$$, which happens when
+
+(1) Can we make $$E_{out}(g)$$ is close enough to $$E_{in}(g)$$?
+
+$$E_{out}(g)≈E_{in}(g)$$
+
+(1) Can we make $$E_{in}(g)$$ small enough?
+
+$$E_{in}(g)≈0$$
+
+---
+
+# **ML Theory: Generalisation**
+
+![right 100%](img/generalisation_error.png)
+
+For Learning, $$E_{out}(g)≈E_{in}(g)$$
+
+To find the generalisation error, we need to split our data into training and test samples
+
+Given large $$N$$, the expected generalisation error should be zero
+
+---
+
+# **ML Theory: Generalisation**
+
+For Learning, $$E_{in}(g)≈0$$
+
+**Complex Model**: Better chance of approximating $$f$$
+**Simple Model**: Better chance of generalising $$E_{out}$$
+
+Lets try by increasing the model complexity - More features through interaction effect
+
+---
+
+# **ML Theory: Model Complexity**
+
+![90% original inline](img/simple_complex.png)
+
+---
+
+![right 100%](img/bias_variance.png)
+# **ML Theory: Bias-Variance**
+
+For Learning, $$E_{in}(g)≈0$$
+
+Given large $$N$$, the expected error should be the bias
+
+- **Bias** are the simplifying assumptions made by a model to make the target function easier to learn.
+- **Variance** is the amount that the estimate of the target function will change if different training data was used.
+
+---
+
+# **ML Theory: Bias-Variance Tradeoff**
+
+![inline](img/model_complexity.png)
+
+---
+
+![right 100%](img/overfitting.png)
+
+# **ML Theory: Overfitting**
+
+- Simple Target Function
+- 5th data point - noisy
+- 4th order polynomial fit
+
+$$E_{in}=0$$, $$E_{out}$$ is large
+
+*Overfitting* - Fitting the data more than warranted, and hence **fitting the noise**
+
+---
+
+# **ML Theory: Addressing Overfitting**
+
+- **Regularization**: Not letting the weights grow
+    - Ridge: add $$||w||^2$$ to error minimisation
+    - Lasso: add $$||w||$$ to error minimisation
+- **Cross-Validation**: Checking when we reach bottom point
+
+---
+
+# **Regularization**
+
+$$ Minimize \quad E_{in}(w) + \frac{\lambda}{N}||w||^2 $$
+
+![inline](img/regularization.png)
+
+---
+
+# Cross Validation
+![fit inline](img/cross_validation.png)
+
 
 ---
 
@@ -204,22 +552,11 @@ $$ y_i = \alpha + \beta_1 x_1 + \beta_2 x_2 + .. $$
 $$ \epsilon = \sum_{k=1}^n (y_i - \hat{y_i} ) ^ 2 $$
 
 
-<br> 
-*Interactive Example: [http://setosa.io/ev/](http://setosa.io/ev/ordinary-least-squares-regression/)*
-
----
-
 # Logit Function
 
 ### $$ \sigma (t)={\frac {e^{t}}{e^{t}+1}}={\frac {1}{1+e^{-t}}}$$
 
 ![inline](img/logistic-curve.png)
-
----
-
-# Logistic Regression
-
-![fit inline](img/logistic_regression.png)
 
 ---
 
@@ -235,48 +572,8 @@ $$ P(x)={\frac {1}{1+e^{-(\beta _{0}+\beta _{1}x)}}} $$
 
 ---
 
-# Fitting a Model
-
-![fit inline](img/overfitting_2.png)
 
 ---
-
-# Bias-Variance Tradeoff
-
-![fit inline](img/biasvariance_2.png)
-
----
-# Train and Test Datasets
-
-Split the Data - 80% / 20%
-
-![fit inline](img/train_test2.png)
-
----
-
-# Train and Test Datasets
-
-Measure the error on Test data
-
-![fit inline](img/test_train.jpg)
-
----
-
-# Model Complexity
-![fit inline](img/model_complexity.png)
-
----
-
-# Cross Validation
-![fit inline](img/cross_validation.png)
-
----
-
-# Regularization
-
-Attempts to impose Occam's razor on the solution
-
-![inline](img/regularization.png)
 
 ---
 
@@ -408,3 +705,23 @@ Example: Survivor on Titanic
 - Eigenvectors & Eigenvalues
 - Principle Component Analysis
 - Cluster Analysis (K-Means)
+
+
+---
+
+# ML Problems
+- “Is this cancer?”
+- “What is the market value of this house?”
+- “Which of these people are friends?”
+- “Will this person like this movie?”
+- “Who is this?”
+- “What did you say?”
+- “How do you fly this thing?”. 
+
+---
+
+# Broad ML Application
+- Database Mining e.g. Clickstream data, Business data
+- Automating e.g. Handwriting, Natural Language Processing, Computer Vision
+- Self Customising Program e.g. Recommendations
+
