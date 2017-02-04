@@ -277,7 +277,16 @@ $$\mathcal{g}(\mathbf{x}) \to \mathcal{f}(\mathbf{x})$$
 
 ---
 
-# **Simple Hypothesis Set: Linear Combination**
+# **Linear Algorithms**
+
+$$ s = \sum_{i=1}^d w_{i} x_{i} $$
+
+
+![inline original](img/linear_models.png)
+
+---
+
+# **Simple Hypothesis Set: Linear Regression**
 
 For $$d$$ features in training data, 
 
@@ -301,7 +310,7 @@ How well does $$ h(\mathbf{x}) $$ approximate to $$ f(\mathbf{x}) $$
 
 We will use squared error $$ {( h(\mathbf{x}) - f(\mathbf{x}))}^2 $$
 
-$$ E_{in}(h) = \frac{1}{n} \sum_{i=i}^n {( h(\mathbf{x}) - y_i))}^2 $$
+$$ E_{in}(h) = \frac{1}{N} \sum_{i=i}^N {( h(\mathbf{x}) - y_i))}^2 $$
 
 ---
 
@@ -313,7 +322,7 @@ $$ E_{in}(h) = \frac{1}{n} \sum_{i=i}^n {( h(\mathbf{x}) - y_i))}^2 $$
 $$g(\mathbf{x}) = \hat{y} $$
 
 
-$$ E_{in}(g) = \frac{1}{n} \sum_{i=1}^n {( \hat{y}_i - y_i)}^2 $$
+$$ E_{in}(g) = \frac{1}{N} \sum_{i=1}^N {( \hat{y}_i - y_i)}^2 $$
 
 
 ---
@@ -516,14 +525,16 @@ $$E_{in}=0$$, $$E_{out}$$ is large
 
 # **ML Theory: Addressing Overfitting**
 
+$$E_{out}(h) = E_{in}(h) + \text{overfit penalty}$$
+
 - **Regularization**: Not letting the weights grow
     - Ridge: add $$||w||^2$$ to error minimisation
     - Lasso: add $$||w||$$ to error minimisation
-- **Cross-Validation**: Checking when we reach bottom point
+- **Validation**: Checking when we reach bottom point
 
 ---
 
-# **Regularization**
+# **Regularization - Ridge**
 
 $$ Minimize \quad E_{in}(w) + \frac{\lambda}{N}||w||^2 $$
 
@@ -531,69 +542,125 @@ $$ Minimize \quad E_{in}(w) + \frac{\lambda}{N}||w||^2 $$
 
 ---
 
-# Cross Validation
+![right 100%](img/validation.png)
+
+# **Validation** 
+
+Validation set: $$K$$
+Training set: $$N-K$$
+
+Rule of Thumb: $$N = \frac{K}{5}$$
+
+Note: The validation set is used for learning
+
+---
+
+# **Cross Validation**
+
+Repeats the process 5-times
+
 ![fit inline](img/cross_validation.png)
 
+---
+
+![right 100%](img/model_selection.png)
+
+# **Model Selection**
+
+How to choose between competing model? 
+
+Choose the function $$g_{m}$$ with 
+lowest cross-validation error $$E_{m}$$
+
+--- 
+
+# **Applied ML**
+- **Theory**: Formulation, Generalisation, Bias-Variance, Overfitting
+- **Paradigms**: Supervised - Regression
+- **Models**: Linear - OLS, Ridge, Lasso
+- **Methods**: Regularisation, Validation
+- **Process**: Frame, Acquire, Refine, Transform, Explore, Model 
+
 
 ---
 
-# Linear Regression
+## **Classification Problem**
 
-![fit inline](img/linear_regression.png)
+*Context*: Loan Default
+
+*Customer Application*
+- **age**: age of the applicant
+- **income**: annual income of the applicant
+- **year**: no. of years of employment
+- **ownership**: type of house owned
+- **grade**: credit grade for the applicant
+- **amount**: loan amount given
+- **interest**: interest rate of loan
+
+*Question* - Who is likely to  **default**?
 
 ---
 
-## Linear Relationship
+# **Linear Models**
 
-$$ y_i = \alpha + \beta_1 x_1 + \beta_2 x_2 + .. $$
-
-## Objective Function
-
-$$ \epsilon = \sum_{k=1}^n (y_i - \hat{y_i} ) ^ 2 $$
+$$ s = \sum_{i=1}^d w_{i} x_{i} $$
 
 
-# Logit Function
+![inline original](img/linear_models.png)
 
-### $$ \sigma (t)={\frac {e^{t}}{e^{t}+1}}={\frac {1}{1+e^{-t}}}$$
+---
+
+# **Logit Function**
+
+### $$ \theta (s)={\frac {e^{s}}{e^{s}+1}}={\frac {1}{1+e^{-s}}}$$
 
 ![inline](img/logistic-curve.png)
 
 ---
 
-# Logistic Relationship
+# **Logistic Relationship**
 
-Find the $$ \beta $$  parameters that best fit:
-$$ y=1 $$  if $$\beta _{0}+\beta _{1}x+\epsilon > 0$$
+Find the $$ w_{i} $$ weights that best fit:
+$$ y=1 $$  if $$ \sum_{i=1}^d w_{i} x_{i} > 0$$
 $$ y=0$$, otherwise
 
 Follows:
 
-$$ P(x)={\frac {1}{1+e^{-(\beta _{0}+\beta _{1}x)}}} $$
+$$ \theta(y_i)={\frac {1}{1+e^{-(\sum_{i=1}^d w_{i} x_{i})}}} $$
 
 ---
 
+# **Error - Likelihood / Probabilities**
+
+Where, $$h(\mathbf{x}) =  \sum_{i=1}^d w_{i} x_{i} $$
+
+Minimise the **log-likelihood** values
+
+$$E(\mathbf{h}) = - \frac{1}{N} ln \left( \prod_{i=1}^N \theta (y_i h(\mathbf{x})) \right)$$
+
+
 
 ---
 
+# **Learning Algorithm - Logistic**
+
+- Logistic Regression algorithm aims to minimise $$ E_{in}(h)$$ 
+- **Iterative Method** -> Solves to give $$g(\mathbf{x})$$
+
+$$g(\mathbf{x}) = \hat{y} $$
+
+$$ E_{in}(g) = \frac{1}{N} \sum_{i=1}^N ln( 1 + e^{-y_i \hat{y_i}})$$
+
+
 ---
 
-# Model Evaluation
-
-Mean Squared Error
-
-$$ MSE = 1/n \sum_{k=1}^n (y_i - \hat{y_i} ) ^ 2 $$
-
----
-
-# Model Evaluation 
-
-Confusion Matrix
+# **Error Metric - Confusion Matrix**
 
 ![inline](img/confusion_matrix2.png)
 
 ---
 
-# Model Evaluation 
+# **Model Evaluation** 
 
 **Classification Metrics**
 
@@ -606,7 +673,8 @@ Precision = TP / (TP + FP)
 Specificity (TNR) =  TN / (TN + FP)
 
 ---
-# Model Evaluation
+
+# **Model Evaluation**
 
 **Receiver Operating Characteristic Curve** 
 
@@ -616,15 +684,15 @@ Plot of TPR vs FPR at different discrimination threshold
 
 ---
 
-# Decision Tree
+# **Decision Tree**
 
 Example: Survivor on Titanic
 
-![inline](img/tree_titanic.png)
+![right fit](img/tree_titanic.png)
 
 ---
 
-# Decision Tree
+# **Decision Tree**
 
 - Easy to interpret
 - Little data preparation
@@ -635,13 +703,15 @@ Example: Survivor on Titanic
 
 ---
 
-# Bagging
+# **Bagging**
+
 - Also called bootstrap aggregation, reduces variance
 - Uses decision trees and uses a model averaging approach
 
 ---
 
-# Random Forest
+# **Random Forest**
+
 - Combines bagging idea and random selection of features.
 - Similar to decision trees are constructed – but at each split, a random subset of features is used. 
 
@@ -654,7 +724,7 @@ Example: Survivor on Titanic
 
 ---
 
-# Challenges
+# **Challenges**
 - Data Snooping
 - Selection Bias
 - Survivor Bias 
@@ -665,63 +735,12 @@ Example: Survivor on Titanic
 ---
 
 # Day 1 Coverage
-**Module 1: Linear Algebra**
-**Supervised ML - Regression, Classification**
-- Solve $$Ax = b$$ for $$ n \times n$$
-- Solve $$Ax = b$$ for $$ n \times p + 1$$
-- Linear Regression
-- Bootstrapping
-- Regularization - L1, L2
-- Gradient Descent
+
 
 ---
 
 # Day 1: Reflections
-- Steep learning curve
-- Different audience level
-- Balance speed and coverage
-- Be considerate
-
----
-
-# Day 2 Agenda - First Half
-
-**Module 1: Linear Algebra**
-**Supervised ML - Classification**
-- Logistic Regression
-
-**Module 2: Statistics**
-**Hypothesis Testing: A/B Testing**
-- Basic Statistics, Distributions
-- Bootstrapping & Simulation
-- A/B Testing
-
----
-
-# Day 2 Agenda - Second Half
-**Module 3: Linear Algebra contd.**
-**Unsupervised ML: Dimensionality Reduction**
-- Solve $$Ax = \lambda x$$ for $$ n \times n$$
-- Eigenvectors & Eigenvalues
-- Principle Component Analysis
-- Cluster Analysis (K-Means)
 
 
 ---
-
-# ML Problems
-- “Is this cancer?”
-- “What is the market value of this house?”
-- “Which of these people are friends?”
-- “Will this person like this movie?”
-- “Who is this?”
-- “What did you say?”
-- “How do you fly this thing?”. 
-
----
-
-# Broad ML Application
-- Database Mining e.g. Clickstream data, Business data
-- Automating e.g. Handwriting, Natural Language Processing, Computer Vision
-- Self Customising Program e.g. Recommendations
 
