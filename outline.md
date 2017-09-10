@@ -412,7 +412,7 @@ Encodings
 
 Feature Transformation
 - Log Transform
-- Sort Transform
+- Sqrt Transform
 
 ---
 
@@ -734,13 +734,13 @@ Example: Survivor on Titanic
 
 ---
 
-# Day 1 Coverage
+
+# **Applied ML**
+- **Theory**: Formulation, Generalisation, Bias-Variance, Overfitting
+- **Paradigms**: Supervised - Regression & Classification
+- **Models**: Linear Models, Tree Models
+- **Methods**: Regularisation, Validation, Aggregation
+- **Process**: Frame, Acquire, Refine, Transform, Explore, Model 
 
 
 ---
-
-# Day 1: Reflections
-
-
----
-
