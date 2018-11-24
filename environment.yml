@@ -1,0 +1,15 @@
+name: workshop
+dependencies:
+- jupyterlab
+- numpy
+- pandas
+- scikit-learn
+- joblib
+- matplotlib
+- plotnine
+- seaborn
+- altair
+- graphviz
+- pip: 
+  - modelvis
+  - yellowbrick
